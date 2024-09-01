@@ -1,7 +1,7 @@
 /*
 Sorting - arranging in ascending or decending.
 */
-
+/*
 //BubbleSort
 import java.util.*;
 public class sorting {
@@ -29,6 +29,7 @@ public class sorting {
         }
     }
 }
+*/
 /*
 //SelectionSort
 import java.util.*;
@@ -92,3 +93,73 @@ class Sorting {
    }
 }
 */
+
+
+
+
+//Comparable
+/*
+import java.util.*;
+public class sorting {
+    public static void main(String[] args){
+        List<Student> ans=new ArrayList<>();
+        ans.add(new Student("rahul",20));
+        ans.add(new Student("rohan",18));
+        ans.add(new Student("arun",24));
+
+        Collections.sort(ans);
+        for(Student s : ans){
+            System.out.println(s.name+s.age);
+        }
+    }
+}
+class Student implements Comparable<Student>{
+    String name;
+    int age;
+    Student(String name,int age){
+        this.name=name;
+        this.age=age;
+    }
+    public int compareTo(Student that) {
+        if(this.age > that.age){
+            return 1;
+        }else{
+            return -1;
+        }
+    }
+}
+*/
+
+//Comparator
+
+import java.util.*;
+public class sorting {
+    public static void main(String[] args){
+        List<Student> ans=new ArrayList<>();
+        ans.add(new Student("rahul",20));
+        ans.add(new Student("rohan",18));
+        ans.add(new Student("arun",24));
+
+        Comparator<Student> con=new Comparator<Student>() {
+            public int compare(Student i,Student j){
+                if(i.age > j.age){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            }
+        } ;
+        Collections.sort(ans,con);
+        for(Student s : ans){
+            System.out.println(s.name+s.age);
+        }
+    }
+}
+class Student{
+    String name;
+    int age;
+    Student(String name,int age){
+        this.name=name;
+        this.age=age;
+    }
+}
